@@ -105,6 +105,12 @@ export const StyledRegisterPage = styled.div`
     color: #828282;
     border-bottom: 0.1125rem solid #828282;
   }
+  .btGoToLogin:hover {
+    font-weight: 500;
+    color: #333333;
+    -webkit-tranform: scale(1.1);
+    -webkit-transition: scale(1.1);
+  }
 
   .formRegister {
     max-width: 28.25rem;
