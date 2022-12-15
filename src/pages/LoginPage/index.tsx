@@ -11,7 +11,7 @@ const Circulos = circulos;
 
 export function LoginPage() {
   const navigate = useNavigate();
-  function goLoginClick() {
+  function goRegisterClick() {
     navigate("/register");
   }
   return (
@@ -44,15 +44,15 @@ export function LoginPage() {
         <p className="messageCreateRegister">
           Crie sua conta para saborear muitas delícias e matar sua fome!
         </p>
-        <button className="btGoToRegister" onClick={goLoginClick}>
+        <button className="btGoToRegister" onClick={goRegisterClick}>
           Cadastrar
         </button>
       </section>
       <section className="secApresentation">
-        <img src={logo} alt="imagem de Kenzie Burguer" />
+        <img src={Logo} alt="imagem de Kenzie Burguer" />
         <div className="areaImageAndMessage">
           <figure className="areaBag">
-            <img src={bag} alt="imagem de sacola verde" />
+            <img src={Bag} alt="imagem de sacola verde" />
           </figure>
           <p className="reminder">
             A vida é como um sanduíche, é preciso recheá-la com os{" "}
@@ -60,7 +60,7 @@ export function LoginPage() {
           </p>
         </div>
         <figure>
-          <img src={circulos} alt="imagem de circulos de cor cinza" />
+          <img src={Circulos} alt="imagem de circulos de cor cinza" />
         </figure>
       </section>
     </StyledLoginPage>

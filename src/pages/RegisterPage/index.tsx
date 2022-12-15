@@ -17,10 +17,10 @@ export function RegisterPage() {
   return (
     <StyledRegisterPage>
       <section className="secApresentation">
-        <img src={logo} alt="imagem de Kenzie Burguer" />
+        <img src={Logo} alt="imagem de Kenzie Burguer" />
         <div className="areaImageAndMessage">
           <figure className="areaBag">
-            <img src={bag} alt="imagem de sacola verde" />
+            <img src={Bag} alt="imagem de sacola verde" />
           </figure>
           <p className="reminder">
             A vida é como um sanduíche, é preciso recheá-la com os{" "}
@@ -28,7 +28,7 @@ export function RegisterPage() {
           </p>
         </div>
         <figure>
-          <img src={circulos} alt="imagem de circulos de cor cinza" />
+          <img src={Circulos} alt="imagem de circulos de cor cinza" />
         </figure>
       </section>
       <section className="secRegister">
