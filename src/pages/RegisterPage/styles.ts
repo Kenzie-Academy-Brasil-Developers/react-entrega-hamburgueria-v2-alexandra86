@@ -178,4 +178,11 @@ export const StyledRegisterPage = styled.div`
     background-color: #828282;
     color: #e0e0e0;
   }
+
+  .areaError {
+    color: #e60000;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+  }
 `;

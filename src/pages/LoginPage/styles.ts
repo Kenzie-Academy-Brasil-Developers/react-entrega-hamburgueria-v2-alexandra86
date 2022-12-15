@@ -184,4 +184,11 @@ export const StyledLoginPage = styled.div`
     line-height: 1.375rem;
     color: #333333;
   }
+
+  .areaError {
+    color: #e60000;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
+  }
 `;

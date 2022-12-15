@@ -4,16 +4,46 @@ import logo from "../../img/kenzieBurguer.svg";
 import bag from "../../img/shoppingBag.svg";
 import circulos from "../../img/circulos.svg";
 import { useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerSchema } from "./registerSchema";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 const Logo = logo;
 const Bag = bag;
 const Circulos = circulos;
+
+interface iRegisterFormData {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
 
 export function RegisterPage() {
   const navigate = useNavigate();
   function goLoginClick() {
     navigate("/");
   }
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<iRegisterFormData>({
+    mode: "onBlur",
+    defaultValues: {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+    resolver: yupResolver(registerSchema),
+  });
+
+  const submit: SubmitHandler<iRegisterFormData> = async (data) => {
+    console.log(data);
+  };
+
   return (
     <StyledRegisterPage>
       <section className="secApresentation">
@@ -38,43 +68,55 @@ export function RegisterPage() {
             Retornar para o login
           </button>
         </div>
-        <form className="formRegister">
+        <form
+          className="formRegister"
+          onSubmit={handleSubmit(submit)}
+          noValidate
+        >
           <label htmlFor="name" className="lbRegister">
             Nome
           </label>
           <input
             type="text"
-            name="name"
             placeholder="Digite seu nome"
             className="iptRegister"
+            {...register("name")}
           />
+          {errors.name && <p className="areaError">{errors.name.message}</p>}
           <label htmlFor="email" className="lbRegister">
             Email
           </label>
           <input
             type="email"
-            name="email"
             placeholder="Digite seu email"
             className="iptRegister"
+            {...register("email")}
           />
+          {errors.email && <p className="areaError">{errors.email.message}</p>}
           <label htmlFor="password" className="lbRegister">
             Senha
           </label>
           <input
             type="password"
-            name="password"
             placeholder="Digite sua senha"
             className="iptRegister"
+            {...register("password")}
           />
-          <label htmlFor="password" className="lbRegister">
+          {errors.password && (
+            <p className="areaError">{errors.password.message}</p>
+          )}
+          <label htmlFor="confirmPassword" className="lbRegister">
             Confirmar Senha
           </label>
           <input
             type="password"
-            name="confirmPassword"
             placeholder="Confirme sua senha"
             className="iptRegister"
+            {...register("confirmPassword")}
           />
+          {errors.confirmPassword && (
+            <p className="areaError">{errors.confirmPassword.message}</p>
+          )}
           <button type="submit" className="btRegister">
             Cadastrar
           </button>
