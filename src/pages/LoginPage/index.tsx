@@ -19,16 +19,16 @@ export function LoginPage() {
       <section className="secLogin">
         <h1 className="titleLogin">Login</h1>
         <form className="formLogin">
-          <label htmlFor="name" className="lbLogin">
+          <label htmlFor="email" className="lbLogin">
             Nome
           </label>
           <input
-            type="text"
-            name="name"
-            placeholder="Digite seu nome"
+            type="email"
+            name="email"
+            placeholder="Digite seu email"
             className="iptLogin"
           />
-          <label htmlFor="name" className="lbLogin">
+          <label htmlFor="password" className="lbLogin">
             Senha
           </label>
           <input

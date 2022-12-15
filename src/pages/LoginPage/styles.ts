@@ -54,6 +54,7 @@ export const StyledLoginPage = styled.div`
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 1rem;
+    background-color: #f5f5f5;
     color: #333333;
     outline: none;
     border: 0.1125rem solid #e0e0e0;
@@ -67,6 +68,11 @@ export const StyledLoginPage = styled.div`
   }
 
   .iptLogin:focus {
+    border: 0.1125rem solid #333333;
+    border-radius: 0.5rem;
+  }
+
+  .iptLogin:hover {
     border: 0.1125rem solid #333333;
     border-radius: 0.5rem;
   }
