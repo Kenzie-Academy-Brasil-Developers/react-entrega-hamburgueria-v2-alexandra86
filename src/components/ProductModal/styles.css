@@ -1,0 +1,211 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-overlay {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(18, 18, 20, 0.5);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.modal-content {
+  background-color: #f5f5f5;
+  margin-top: 15%;
+  max-width: 31.25rem;
+  max-height: 18.1875rem;
+  width: 100%;
+  border-radius: 0.3125rem;
+}
+.headerModal {
+  max-width: 31.25rem;
+  width: 100%;
+  height: 3.375rem;
+  padding: 0.8125rem 1.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #27ae60;
+  border-radius: 0.3125rem 0.3125rem 0rem 0rem;
+}
+.titleModal {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #ffffff;
+}
+.btCloseModal {
+  max-width: 0.75rem;
+  width: 100%;
+  height: 1.5rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.btCloseModal:hover {
+  -webkit-transition: scale(1.1);
+  -webkit-transform: scale(1.1);
+  color: #ffffff;
+}
+
+.areaEmptyBag {
+  max-width: 31.25rem;
+  width: 100%;
+  height: 9.625rem;
+  padding: 3.125rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.messageEmptyBag {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #333333;
+}
+
+.addItens {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #828282;
+}
+.ulProductModal {
+  max-width: 31.25rem;
+  width: 100%;
+  height: 7.5rem;
+  overflow: auto;
+}
+
+.liProductModal {
+  max-width: 31.25rem;
+  width: 100%;
+  padding: 1.25rem 1.49rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.areaDivContention {
+  display: flex;
+}
+
+.areaImageLiModal {
+  max-width: 5.14125rem;
+  width: 100%;
+  height: 5rem;
+  padding: 0.8125rem;
+  background-color: #e0e0e0;
+  border-radius: 0.3125rem;
+}
+.imageLiModal {
+  max-width: 3.4375rem;
+  width: 100%;
+  height: 3.4375rem;
+}
+
+.areaDescriptionProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4375rem;
+  margin-left: 0.630625rem;
+}
+
+.titleProductModal {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #333333;
+}
+
+.areaPriceProductModal {
+  width: 100%;
+  display: flex;
+  border-top: 0.1125rem solid #e0e0e0;
+  height: 1.75rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9375rem 1.4375rem;
+}
+
+.btTrash {
+  max-width: 1.875rem;
+  width: 100%;
+  height: 3.5625rem;
+  background-image: url("../../img/btTrash.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.areaButtonsProductModal {
+  background: #f2f2f2;
+  max-width: 6.66rem;
+  width: 100%;
+  height: 2.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.26875rem;
+}
+
+.btMoreOrLess {
+  max-width: 1.9025rem;
+  width: 100%;
+  height: 2.125rem;
+  background-color: #e0e0e0;
+  color: #eb5757;
+  border: 0.1125rem solid #e0e0e0;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.375rem;
+}
+
+.quantityProductModal {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #000000;
+}
+
+.total {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #333333;
+}
+
+.priceTotal {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #828282;
+}
+
+.btRemoveAll {
+  margin-top: 0.5625rem;
+  margin-left: 1.49rem;
+  max-width: 28.375rem;
+  width: 100%;
+  height: 3.75rem;
+  padding: 0rem 1.25rem;
+  border-radius: 0.5rem;
+  background-color: #e0e0e0;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #828282;
+}
+.btRemoveAll:hover {
+  background-color: #828282;
+  color: #e0e0e0;
+}

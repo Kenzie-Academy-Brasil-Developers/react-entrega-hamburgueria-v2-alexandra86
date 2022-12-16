@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../img/kenzieBurguer.svg";
 import { useNavigate } from "react-router-dom";
 import { Product } from "../../components/Product";
 import { StyledHomePage } from "./styles";
+import { CartContext } from "../../contexts/CartContext";
+import { ProductModal } from "../../components/ProductModal";
 
 const Logo = logo;
 
 export function HomePage() {
+  const { modalIsOpen, handleModal } = useContext(CartContext);
+
   const navigate = useNavigate();
   function goLoginClick() {
     navigate("/");
@@ -28,7 +32,11 @@ export function HomePage() {
             </form>
           </div>
           <div className="areaButtons">
-            <button type="button" className="btCar"></button>
+            <button
+              type="button"
+              className="btCar"
+              onClick={() => handleModal()}
+            ></button>
             <button
               type="button"
               className="btLogout"
@@ -49,6 +57,7 @@ export function HomePage() {
           <Product />
         </ul>
       </main>
+      {modalIsOpen && <ProductModal />}
     </StyledHomePage>
   );
 }
