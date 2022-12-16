@@ -68,7 +68,7 @@ export const StyledHomePage = styled.div`
   }
   .areaButtons {
     margin-left: 1.4375rem;
-    max-width: 120px;
+    max-width: 5.375rem;
     width: 100%;
     height: 3.75rem;
     display: flex;
