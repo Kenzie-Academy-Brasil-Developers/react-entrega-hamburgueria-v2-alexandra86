@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyledLoginPage } from "./styles";
 import logo from "../../img/kenzieBurguer.svg";
 import bag from "../../img/shoppingBag.svg";
@@ -7,17 +7,20 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { loginSchema } from "./loginSchema";
+import { UserContext } from "../../contexts/UserContext";
 
 const Logo = logo;
 const Bag = bag;
 const Circulos = circulos;
 
-interface iLoginFormData {
+export interface iLoginFormData {
   email: string;
   password: string;
 }
 
 export function LoginPage() {
+  const { NewLogin, setLoading } = useContext(UserContext);
+
   const navigate = useNavigate();
   function goRegisterClick() {
     navigate("/register");
@@ -37,7 +40,8 @@ export function LoginPage() {
   });
 
   const submit: SubmitHandler<iLoginFormData> = async (data) => {
-    console.log(data);
+    const information = { ...data };
+    await NewLogin(information, setLoading);
   };
 
   return (

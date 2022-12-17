@@ -5,15 +5,21 @@ import { Product } from "../../components/Product";
 import { StyledHomePage } from "./styles";
 import { CartContext } from "../../contexts/CartContext";
 import { ProductModal } from "../../components/ProductModal";
+import { UserContext } from "../../contexts/UserContext";
 
 const Logo = logo;
 
 export function HomePage() {
   const { modalIsOpen, handleModal } = useContext(CartContext);
+  const { newLoading } = useContext(UserContext);
 
   const navigate = useNavigate();
   function goLoginClick() {
+    if (newLoading) {
+      return null;
+    }
     navigate("/");
+    localStorage.removeItem("@TOKEN");
   }
 
   return (
