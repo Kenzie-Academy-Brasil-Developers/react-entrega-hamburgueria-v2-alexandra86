@@ -9,13 +9,26 @@ import { ProductModal } from "../../components/ProductModal";
 const Logo = logo;
 
 export function HomePage() {
-  const { modalIsOpen, handleModal, products } = useContext(CartContext);
+  const { modalIsOpen, handleModal, products, searchProds, setSearchProds } =
+    useContext(CartContext);
 
   const navigate = useNavigate();
   function goLoginClick() {
     navigate("/");
     localStorage.removeItem("@TOKEN");
   }
+
+  const showProducts = !searchProds
+    ? products
+    : products.filter(
+        (element) =>
+          element.name
+            .toLowerCase()
+            .includes(searchProds.toLocaleLowerCase()) ||
+          element.category
+            .toLowerCase()
+            .includes(searchProds.toLocaleLowerCase())
+      );
 
   return (
     <StyledHomePage>
@@ -25,6 +38,8 @@ export function HomePage() {
           <div className="areaDivForm">
             <form className="formHome">
               <input
+                value={searchProds}
+                onChange={(event) => setSearchProds(event.target.value)}
                 type="text"
                 placeholder="Digitar Pesquisa"
                 className="iptHome"
@@ -48,7 +63,7 @@ export function HomePage() {
       </header>
       <main className="mainHome">
         <ul className="ulProduct">
-          {products?.map((elem) => (
+          {showProducts?.map((elem) => (
             <Product key={elem.id} elem={elem} />
           ))}
         </ul>

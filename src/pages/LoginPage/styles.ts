@@ -222,12 +222,12 @@ export const StyledLoginPage = styled.div`
     .hidden {
       display: none;
     }
+  }
 
-    
-    @media (max-width: 28.125rem) {
-      .messageCreateRegister{
-        margin-left: 1rem;
-    width: 89%;
-      }
+  @media (max-width: 28.125rem) {
+    .messageCreateRegister {
+      margin-left: 1rem;
+      width: 89%;
+    }
   }
 `;

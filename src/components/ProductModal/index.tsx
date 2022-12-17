@@ -8,7 +8,7 @@ Modal.setAppElement("#root");
 const Hamburguer = hamburguer;
 
 export function ProductModal() {
-  const { modalIsOpen, handleModal } = useContext(CartContext);
+  const { modalIsOpen, handleModal, cartProdcts } = useContext(CartContext);
 
   return (
     <div className="container">
@@ -24,37 +24,51 @@ export function ProductModal() {
             X
           </button>
         </div>
+        {cartProdcts.length === 0 && (
+          <div className="areaEmptyBag">
+            <p className="messageEmptyBag">Sua Sacola está vazia</p>
+            <span className="addItens">Adicione itens</span>
+          </div>
+        )}
         <ul className="ulProductModal">
-          <li className="liProductModal">
-            <div className="areaDivContention">
-              <figure className="areaImageLiModal">
-                <img
-                  src={Hamburguer}
-                  alt="imagem de hamburguer"
-                  className="imageLiModal"
-                />
-              </figure>
-              <div className="areaDescriptionProduct">
-                <p className="titleProductModal">Hamburguer</p>
-                <div className="areaButtonsProductModal">
-                  <button className="btMoreOrLess">-</button>
-                  <span className="quantityProductModal">1</span>
-                  <button className="btMoreOrLess">+</button>
+          {cartProdcts?.map((elem) => (
+            <li className="liProductModal" key={elem.id}>
+              <div className="areaDivContention">
+                <figure className="areaImageLiModal">
+                  <img
+                    src={elem.img}
+                    alt={elem.name}
+                    className="imageLiModal"
+                  />
+                </figure>
+                <div className="areaDescriptionProduct">
+                  <p className="titleProductModal">{elem.name}</p>
+                  <div className="areaButtonsProductModal">
+                    <button className="btMoreOrLess">-</button>
+                    <span className="quantityProductModal">1</span>
+                    <button className="btMoreOrLess">+</button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <button className="btTrash"></button>
-          </li>
+              <button className="btTrash"></button>
+            </li>
+          ))}
         </ul>
-        <div className="areaPriceProductModal">
-          <p className="total">Total</p>
-          <span className="priceTotal">R$ 14,00</span>
-        </div>
-        <button className="btRemoveAll">Remover Todos</button>
-        {/* <div className="areaEmptyBag">
-          <p className="messageEmptyBag">Sua Sacola está vazia</p>
-          <span className="addItens">Adicione itens</span>
-        </div> */}
+        {cartProdcts.length !== 0 && (
+          <div>
+            <div className="areaPriceProductModal">
+              <p className="total">Total</p>
+              <span className="priceTotal">
+                {" "}
+                R${" "}
+                {cartProdcts
+                  ?.reduce((acc, act) => acc + act.price, 0)
+                  .toFixed(2)}
+              </span>
+            </div>
+            <button className="btRemoveAll">Remover Todos</button>
+          </div>
+        )}
       </Modal>
     </div>
   );
