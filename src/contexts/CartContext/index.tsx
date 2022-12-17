@@ -97,23 +97,6 @@ export function CartProvider({ children }: iCartProviderProps) {
     }, 2000);
   }
 
-  // function handleDecrementCount(productId) {
-  //   const updateProductCart = cartProdcts.map((item) => item.id === productId? {...item, count: item.count++}
-  //     setCartProducts(updateProductCart);
-  // }
-
-  // function handleIncrementCount(productId) {
-  //   const product = cartProdcts.find((item) => item.id === productId);
-  //   if (product.count <= 1) {
-  //     const updateProductCart = cartProdcts.find(
-  //       (item) => item.id !== productId
-  //     );
-  //     setCartProducts(updateProductCart);
-  //   }else{
-  //   const product = cartProdcts.map((item) => item.id === productId? {...item, count: item.count--}:item);
-  // }
-  // }
-
   return (
     <CartContext.Provider
       value={{
