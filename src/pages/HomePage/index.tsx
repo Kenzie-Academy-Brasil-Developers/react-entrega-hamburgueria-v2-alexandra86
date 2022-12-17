@@ -33,9 +33,13 @@ export function HomePage() {
   return (
     <StyledHomePage>
       <header className="headerHome">
-        <img src={Logo} alt="imagem de Kenzie Burguer" />
+        <img
+          src={Logo}
+          alt="imagem de Kenzie Burguer"
+          className="logoKenzieBurguer"
+        />
         <div className="areaDivHeader">
-          <div className="areaDivForm">
+          <div className="areaDivForm hidden">
             <form className="formHome">
               <input
                 value={searchProds}

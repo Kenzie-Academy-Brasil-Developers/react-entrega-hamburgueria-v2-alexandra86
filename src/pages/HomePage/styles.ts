@@ -128,4 +128,34 @@ export const StyledHomePage = styled.div`
     flex-wrap: wrap;
     gap: 0.875rem;
   }
+
+  @media (max-width: 57.9375rem) {
+    .headerHome {
+      padding: 18.28px 10.19px;
+    }
+
+    .mainHome {
+      padding: 0rem;
+    }
+    .ulProduct {
+      margin-top: 2rem;
+      width: 100%;
+      height: 22.625rem;
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 0.875rem;
+      overflow: auto;
+    }
+    .logoKenzieBurguer {
+      max-width: 158.94px;
+      width: 100%;
+      height: 36.83px;
+    }
+    .hidden {
+      display: none;
+    }
+    .areaDivForm {
+      justify-content: flex-end;
+    }
+  }
 `;
