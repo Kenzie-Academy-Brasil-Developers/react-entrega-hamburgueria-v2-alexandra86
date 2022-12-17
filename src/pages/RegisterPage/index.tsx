@@ -21,12 +21,12 @@ export interface iRegisterFormData {
 }
 
 export function RegisterPage() {
+  const { NewRegister, setLoading } = useContext(UserContext);
+
   const navigate = useNavigate();
   function goLoginClick() {
     navigate("/");
   }
-
-  const { NewRegister, setLoading } = useContext(UserContext);
 
   const {
     register,
@@ -47,7 +47,6 @@ export function RegisterPage() {
     const information = { ...data };
     delete information.confirmPassword;
     await NewRegister(information, setLoading);
-    console.log(information);
     reset();
   };
 
