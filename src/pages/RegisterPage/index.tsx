@@ -54,7 +54,7 @@ export function RegisterPage() {
     <StyledRegisterPage>
       <section className="secApresentation">
         <img src={Logo} alt="imagem de Kenzie Burguer" />
-        <div className="areaImageAndMessage">
+        <div className="areaImageAndMessage hidden">
           <figure className="areaBag">
             <img src={Bag} alt="imagem de sacola verde" />
           </figure>
@@ -64,7 +64,11 @@ export function RegisterPage() {
           </p>
         </div>
         <figure>
-          <img src={Circulos} alt="imagem de circulos de cor cinza" />
+          <img
+            src={Circulos}
+            alt="imagem de circulos de cor cinza"
+            className="hidden"
+          />
         </figure>
       </section>
       <section className="secRegister">

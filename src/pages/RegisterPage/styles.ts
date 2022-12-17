@@ -185,4 +185,25 @@ export const StyledRegisterPage = styled.div`
     font-weight: 500;
     font-size: 0.75rem;
   }
+
+  @media (max-width: 67.5rem) {
+    flex-direction: column;
+    gap: 0;
+
+    .secApresentation {
+      height: 6.8125rem;
+    }
+
+    .secRegister {
+      border: none;
+    }
+
+    .reminder {
+      margin-bottom: 0.3125rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
 `;

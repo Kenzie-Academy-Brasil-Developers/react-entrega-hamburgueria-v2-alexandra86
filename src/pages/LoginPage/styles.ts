@@ -96,7 +96,7 @@ export const StyledLoginPage = styled.div`
   }
 
   .messageCreateRegister {
-    margin-left: 5.375rem;
+    margin-left: 4.375rem;
     margin-bottom: 1.3125rem;
     max-width: 20.4375rem;
     width: 100%;
@@ -190,5 +190,44 @@ export const StyledLoginPage = styled.div`
     font-family: "Inter", sans-serif;
     font-weight: 500;
     font-size: 0.75rem;
+  }
+
+  @media (max-width: 67.5rem) {
+    margin-top: 3.3125rem;
+    flex-direction: column-reverse;
+    gap: 0rem;
+
+    .secApresentation {
+      height: 9.8125rem;
+    }
+
+    .secLogin {
+      border: none;
+    }
+
+    .messageCreateRegister {
+      margin-top: 0.875rem;
+    }
+
+    .areaImageAndMessage {
+      height: 8.9375rem;
+      max-width: 28.25rem;
+      width: 100%;
+    }
+
+    .reminder {
+      margin-bottom: 0.4rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    
+    @media (max-width: 28.125rem) {
+      .messageCreateRegister{
+        margin-left: 1rem;
+    width: 89%;
+      }
   }
 `;

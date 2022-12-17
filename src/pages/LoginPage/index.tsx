@@ -94,7 +94,11 @@ export function LoginPage() {
           </p>
         </div>
         <figure>
-          <img src={Circulos} alt="imagem de circulos de cor cinza" />
+          <img
+            src={Circulos}
+            alt="imagem de circulos de cor cinza"
+            className="hidden"
+          />
         </figure>
       </section>
     </StyledLoginPage>
