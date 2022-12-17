@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StyledRegisterPage } from "./styles";
 import logo from "../../img/kenzieBurguer.svg";
 import bag from "../../img/shoppingBag.svg";
@@ -7,16 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { UserContext } from "../../contexts/UserContext";
 
 const Logo = logo;
 const Bag = bag;
 const Circulos = circulos;
 
-interface iRegisterFormData {
+export interface iRegisterFormData {
   name: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  confirmPassword?: string;
 }
 
 export function RegisterPage() {
@@ -25,9 +26,12 @@ export function RegisterPage() {
     navigate("/");
   }
 
+  const { NewRegister, setLoading } = useContext(UserContext);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<iRegisterFormData>({
     mode: "onBlur",
@@ -35,13 +39,16 @@ export function RegisterPage() {
       name: "",
       email: "",
       password: "",
-      confirmPassword: "",
     },
     resolver: yupResolver(registerSchema),
   });
 
   const submit: SubmitHandler<iRegisterFormData> = async (data) => {
-    console.log(data);
+    const information = { ...data };
+    delete information.confirmPassword;
+    await NewRegister(information, setLoading);
+    console.log(information);
+    reset();
   };
 
   return (
