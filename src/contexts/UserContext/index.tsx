@@ -27,7 +27,6 @@ interface iUserContext {
   ) => void;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-  getUser: () => void;
   newLoading: boolean;
   setNewLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -55,26 +54,6 @@ export function UserProvider({ children }: iUserProviderProps) {
   const [newLoading, setNewLoading] = useState(true);
   const navigate = useNavigate();
 
-  async function getUser() {
-    const tokenValidate = localStorage.getItem("@TOKEN");
-
-    if (!tokenValidate) {
-      setNewLoading(false);
-      return;
-    }
-    api.defaults.headers.common["Authorization"] = `Bearer ${tokenValidate}`;
-    try {
-      const response = await api.get("/products");
-      setUser(response.data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setNewLoading(false);
-    }
-  }
-  useEffect(() => {
-    getUser();
-  }, []);
   async function NewLogin(
     data: iDataToLogin,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
@@ -129,7 +108,6 @@ export function UserProvider({ children }: iUserProviderProps) {
         NewLogin,
         setNewLoading,
         newLoading,
-        getUser,
       }}
     >
       {children}

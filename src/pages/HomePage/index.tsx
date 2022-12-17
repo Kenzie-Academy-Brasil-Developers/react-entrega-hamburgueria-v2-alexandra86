@@ -5,19 +5,14 @@ import { Product } from "../../components/Product";
 import { StyledHomePage } from "./styles";
 import { CartContext } from "../../contexts/CartContext";
 import { ProductModal } from "../../components/ProductModal";
-import { UserContext } from "../../contexts/UserContext";
 
 const Logo = logo;
 
 export function HomePage() {
-  const { modalIsOpen, handleModal } = useContext(CartContext);
-  const { newLoading } = useContext(UserContext);
+  const { modalIsOpen, handleModal, products } = useContext(CartContext);
 
   const navigate = useNavigate();
   function goLoginClick() {
-    if (newLoading) {
-      return null;
-    }
     navigate("/");
     localStorage.removeItem("@TOKEN");
   }
@@ -53,14 +48,9 @@ export function HomePage() {
       </header>
       <main className="mainHome">
         <ul className="ulProduct">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+          {products?.map((elem) => (
+            <Product key={elem.id} elem={elem} />
+          ))}
         </ul>
       </main>
       {modalIsOpen && <ProductModal />}
