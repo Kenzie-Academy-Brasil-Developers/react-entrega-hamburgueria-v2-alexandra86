@@ -11,6 +11,8 @@ interface iCartContext {
   setSearchProds: React.Dispatch<React.SetStateAction<string>>;
   cartProdcts: iCartProducts[];
   addProductsCart: (element: iCartProducts) => void;
+  removeProduct(id: iCartProducts): void;
+  removeAllProduct(): void;
 }
 
 export interface iProducts {
@@ -81,6 +83,20 @@ export function CartProvider({ children }: iCartProviderProps) {
     }
   }
 
+  function removeProduct(id: iCartProducts) {
+    const removeAddProdcts = cartProdcts.filter((elem) => elem !== id);
+    setCartProducts(removeAddProdcts);
+    toast.info("Produto removido com sucesso!");
+  }
+
+  function removeAllProduct() {
+    setCartProducts([]);
+    toast.info("Produtos removidos!");
+    setTimeout(() => {
+      toast.warn("Sacola vazia! Adicione itens!");
+    }, 2000);
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -92,6 +108,8 @@ export function CartProvider({ children }: iCartProviderProps) {
         setSearchProds,
         cartProdcts,
         addProductsCart,
+        removeProduct,
+        removeAllProduct,
       }}
     >
       {children}

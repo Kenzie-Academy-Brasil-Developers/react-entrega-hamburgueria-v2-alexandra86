@@ -2,13 +2,16 @@ import { useContext } from "react";
 import Modal from "react-modal";
 import { CartContext } from "../../contexts/CartContext";
 import "../../components/ProductModal/styles.css";
-import hamburguer from "../../img/hamburguer.svg";
 Modal.setAppElement("#root");
 
-const Hamburguer = hamburguer;
-
 export function ProductModal() {
-  const { modalIsOpen, handleModal, cartProdcts } = useContext(CartContext);
+  const {
+    modalIsOpen,
+    handleModal,
+    cartProdcts,
+    removeProduct,
+    removeAllProduct,
+  } = useContext(CartContext);
 
   return (
     <div className="container">
@@ -50,7 +53,10 @@ export function ProductModal() {
                   </div>
                 </div>
               </div>
-              <button className="btTrash"></button>
+              <button
+                className="btTrash"
+                onClick={() => removeProduct(elem)}
+              ></button>
             </li>
           ))}
         </ul>
@@ -59,14 +65,15 @@ export function ProductModal() {
             <div className="areaPriceProductModal">
               <p className="total">Total</p>
               <span className="priceTotal">
-                {" "}
                 R${" "}
                 {cartProdcts
                   ?.reduce((acc, act) => acc + act.price, 0)
                   .toFixed(2)}
               </span>
             </div>
-            <button className="btRemoveAll">Remover Todos</button>
+            <button className="btRemoveAll" onClick={() => removeAllProduct()}>
+              Remover Todos
+            </button>
           </div>
         )}
       </Modal>
