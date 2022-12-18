@@ -8,10 +8,10 @@ export const StyleProduct = styled.li`
   border: 0.125rem solid #e0e0e0;
   border-radius: 0.3125rem;
   display: flex;
-  padding-bottom: 23px;
+  padding-bottom: 1.4375rem;
 
   .imgProduct {
-    padding: 15.12px 71px 0px 52px;
+    padding: 0.945rem 4.4375rem 0rem 3.25rem;
     width: 18.4375rem;
     height: 10.75rem;
     background: #f5f5f5;

@@ -19,7 +19,7 @@ export const StyledHomePage = styled.div`
     background-color: #f5f5f5;
   }
   .areaDivHeader {
-    max-width: 460px;
+    max-width: 28.75rem;
     width: 100%;
     display: flex;
   }
@@ -131,7 +131,7 @@ export const StyledHomePage = styled.div`
 
   @media (max-width: 57.9375rem) {
     .headerHome {
-      padding: 18.28px 10.19px;
+      padding: 1.1425rem 0.636875rem;
     }
 
     .mainHome {
@@ -147,9 +147,9 @@ export const StyledHomePage = styled.div`
       overflow: auto;
     }
     .logoKenzieBurguer {
-      max-width: 158.94px;
+      max-width: 9.93375rem;
       width: 100%;
-      height: 36.83px;
+      height: 2.301875rem;
     }
     .hidden {
       display: none;
