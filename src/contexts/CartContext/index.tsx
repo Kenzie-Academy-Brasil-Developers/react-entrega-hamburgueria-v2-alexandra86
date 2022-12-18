@@ -46,13 +46,12 @@ export function CartProvider({ children }: iCartProviderProps) {
     async function getProducts() {
       const tokenValidate = localStorage.getItem("@TOKEN");
       if (tokenValidate) {
+        api.defaults.headers.authorization = `Bearer ${tokenValidate}`;
         try {
-          api.defaults.headers.authorization = `Bearer ${tokenValidate}`;
           const { data } = await api.get("/products");
           setProducts(data);
         } catch (error) {
           console.log(error);
-        } finally {
         }
       }
     }

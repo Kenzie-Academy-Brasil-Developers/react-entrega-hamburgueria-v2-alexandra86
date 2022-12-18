@@ -23,7 +23,7 @@ button{
 }
 
 body, html{
-    overflow-X: hidden !important;;
+    overflow-X: hidden !important;
 }
 
 
