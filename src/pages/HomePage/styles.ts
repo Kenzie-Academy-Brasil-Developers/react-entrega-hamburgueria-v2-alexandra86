@@ -9,7 +9,6 @@ export const StyledHomePage = styled.div`
   height: 100vh;
 
   .headerHome {
-    max-width: 100rem;
     width: 100%;
     height: 5rem;
     display: flex;
