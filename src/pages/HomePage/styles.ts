@@ -144,6 +144,7 @@ export const StyledHomePage = styled.div`
       margin-top: 1rem;
       width: 100%;
       height: 22.625rem;
+      padding: 0rem 0.636875rem;
       display: flex;
       flex-wrap: nowrap;
       gap: 0.875rem;
