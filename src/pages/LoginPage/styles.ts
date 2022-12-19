@@ -193,7 +193,7 @@ export const StyledLoginPage = styled.div`
   }
 
   @media (max-width: 67.5rem) {
-    margin-top: 3.3125rem;
+    margin-top: 5.3125rem;
     flex-direction: column-reverse;
     gap: 0rem;
 
