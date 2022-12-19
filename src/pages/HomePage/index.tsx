@@ -39,7 +39,7 @@ export function HomePage() {
           className="logoKenzieBurguer"
         />
         <div className="areaDivHeader">
-          <div className="areaDivForm hidden">
+          <div className="areaDivForm">
             <form className="formHome">
               <input
                 value={searchProds}

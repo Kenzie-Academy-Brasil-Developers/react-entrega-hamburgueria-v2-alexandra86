@@ -131,14 +131,17 @@ export const StyledHomePage = styled.div`
 
   @media (max-width: 57.9375rem) {
     .headerHome {
+      height: 10.4375rem;
       padding: 1.1425rem 0.636875rem;
+      flex-direction: column;
+      gap: 0.875rem;
     }
 
     .mainHome {
       padding: 0rem;
     }
     .ulProduct {
-      margin-top: 2rem;
+      margin-top: 1rem;
       width: 100%;
       height: 22.625rem;
       display: flex;
@@ -147,15 +150,26 @@ export const StyledHomePage = styled.div`
       overflow: auto;
     }
     .logoKenzieBurguer {
-      max-width: 9.93375rem;
-      width: 100%;
-      height: 2.301875rem;
-    }
-    .hidden {
-      display: none;
+      margin-top: 1rem;
     }
     .areaDivForm {
+      width: 64%;
       justify-content: flex-end;
+    }
+    .areaButtons {
+      display: flex;
+      gap: 0rem;
+    }
+    .formHome {
+      padding: 0.1875rem 0.1875rem;
+    }
+
+    .iptHome {
+      width: 85%;
+      font-size: 0.875rem;
+    }
+    .iptHome::placeholder {
+      font-size: 0.875rem;
     }
   }
 `;
