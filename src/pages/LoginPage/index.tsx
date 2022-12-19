@@ -19,7 +19,7 @@ export interface iLoginFormData {
 }
 
 export function LoginPage() {
-  const { NewLogin, setLoading } = useContext(UserContext);
+  const { NewLogin, setLoading, loading } = useContext(UserContext);
 
   const navigate = useNavigate();
   function goRegisterClick() {
@@ -71,8 +71,8 @@ export function LoginPage() {
           {errors.password && (
             <p className="areaError">{errors.password.message}</p>
           )}
-          <button type="submit" className="btLogar">
-            Logar
+          <button type="submit" className="btLogar" disabled={loading}>
+            {loading ? "Carregando..." : "Logar"}
           </button>
         </form>
         <p className="messageCreateRegister">

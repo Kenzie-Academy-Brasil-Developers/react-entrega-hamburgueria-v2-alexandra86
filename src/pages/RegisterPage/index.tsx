@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { UserContext } from "../../contexts/UserContext";
+import { loadavg } from "os";
 
 const Logo = logo;
 const Bag = bag;
@@ -21,7 +22,7 @@ export interface iRegisterFormData {
 }
 
 export function RegisterPage() {
-  const { NewRegister, setLoading } = useContext(UserContext);
+  const { NewRegister, setLoading, loading } = useContext(UserContext);
 
   const navigate = useNavigate();
   function goLoginClick() {
@@ -127,8 +128,8 @@ export function RegisterPage() {
           {errors.confirmPassword && (
             <p className="areaError">{errors.confirmPassword.message}</p>
           )}
-          <button type="submit" className="btRegister">
-            Cadastrar
+          <button type="submit" className="btRegister" disabled={loading}>
+            {loading ? "Carregando..." : "Cadastrar"}
           </button>
         </form>
       </section>
