@@ -5,12 +5,17 @@ import "../../components/ProductModal/styles.css";
 Modal.setAppElement("#root");
 
 export function ProductModal() {
+  const addCoutItem: number[] = [];
+
   const {
     modalIsOpen,
     handleModal,
     cartProdcts,
     removeProduct,
     removeAllProduct,
+    addProductsCountCart,
+    coutItemCart,
+    removeItemCout,
   } = useContext(CartContext);
 
   return (
@@ -34,31 +39,49 @@ export function ProductModal() {
           </div>
         )}
         <ul className="ulProductModal">
-          {cartProdcts?.map((elem) => (
-            <li className="liProductModal" key={elem.id}>
-              <div className="areaDivContention">
-                <figure className="areaImageLiModal">
-                  <img
-                    src={elem.img}
-                    alt={elem.name}
-                    className="imageLiModal"
-                  />
-                </figure>
-                <div className="areaDescriptionProduct">
-                  <p className="titleProductModal">{elem.name}</p>
-                  <div className="areaButtonsProductModal">
-                    <button className="btMoreOrLess">-</button>
-                    <span className="quantityProductModal">1</span>
-                    <button className="btMoreOrLess">+</button>
+          {cartProdcts?.map((elem) => {
+            const verify = addCoutItem.some((id) => id === elem.id);
+            if (!verify) {
+              addCoutItem.push(elem.id);
+              return (
+                <li className="liProductModal" key={elem.id}>
+                  <div className="areaDivContention">
+                    <figure className="areaImageLiModal">
+                      <img
+                        src={elem.img}
+                        alt={elem.name}
+                        className="imageLiModal"
+                      />
+                    </figure>
+                    <div className="areaDescriptionProduct">
+                      <p className="titleProductModal">{elem.name}</p>
+                      <div className="areaButtonsProductModal">
+                        <button
+                          className="btMoreOrLess"
+                          onClick={() => removeItemCout(elem)}
+                        >
+                          -
+                        </button>
+                        <span className="quantityProductModal">
+                          {coutItemCart(elem.id)}
+                        </span>
+                        <button
+                          className="btMoreOrLess"
+                          onClick={() => addProductsCountCart(elem)}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <button
-                className="btTrash"
-                onClick={() => removeProduct(elem)}
-              ></button>
-            </li>
-          ))}
+                  <button
+                    className="btTrash"
+                    onClick={() => removeProduct(elem)}
+                  ></button>
+                </li>
+              );
+            }
+          })}
         </ul>
         {cartProdcts.length !== 0 && (
           <div>

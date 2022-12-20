@@ -88,6 +88,23 @@ export const StyledHomePage = styled.div`
     background-repeat: no-repeat;
   }
 
+  .areaItem {
+    width: 100%;
+  }
+  .itemCart {
+    max-width: 1.25rem;
+    height: 1.5rem;
+    background-color: #27ae60;
+    border-radius: 0.4375rem;
+    color: #ffffff;
+    text-align: center;
+    padding-top: 0.125rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    margin-left: 0.625rem;
+  }
+
   .btCar {
     max-width: 1.5625rem;
     width: 100%;

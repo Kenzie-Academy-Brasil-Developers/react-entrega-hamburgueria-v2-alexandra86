@@ -9,8 +9,14 @@ import { ProductModal } from "../../components/ProductModal";
 const Logo = logo;
 
 export function HomePage() {
-  const { modalIsOpen, handleModal, products, searchProds, setSearchProds } =
-    useContext(CartContext);
+  const {
+    modalIsOpen,
+    handleModal,
+    products,
+    searchProds,
+    setSearchProds,
+    item,
+  } = useContext(CartContext);
 
   const navigate = useNavigate();
   function goLoginClick() {
@@ -52,11 +58,14 @@ export function HomePage() {
             </form>
           </div>
           <div className="areaButtons">
-            <button
-              type="button"
-              className="btCar"
-              onClick={() => handleModal()}
-            ></button>
+            <div className="areaItem">
+              <p className="itemCart">{item}</p>
+              <button
+                type="button"
+                className="btCar"
+                onClick={() => handleModal()}
+              ></button>
+            </div>
             <button
               type="button"
               className="btLogout"

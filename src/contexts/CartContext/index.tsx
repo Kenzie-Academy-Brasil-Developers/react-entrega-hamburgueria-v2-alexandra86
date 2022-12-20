@@ -13,6 +13,10 @@ interface iCartContext {
   addProductsCart: (element: iCartProducts) => void;
   removeProduct(id: iCartProducts): void;
   removeAllProduct(): void;
+  item: number;
+  addProductsCountCart: (element: iCartProducts) => void;
+  coutItemCart: (id: number) => number;
+  removeItemCout: (id: iCartProducts) => void;
 }
 
 export interface iProducts {
@@ -41,6 +45,7 @@ export function CartProvider({ children }: iCartProviderProps) {
   const [products, setProducts] = useState([] as iProducts[]);
   const [searchProds, setSearchProds] = useState("");
   const [cartProdcts, setCartProducts] = useState([] as iProducts[]);
+  const [item, setItem] = useState(0);
 
   useEffect(() => {
     async function getProducts() {
@@ -76,24 +81,56 @@ export function CartProvider({ children }: iCartProviderProps) {
       setCartProducts((previuosCart: iProducts[] | any) => {
         return [...previuosCart, getAddProducts];
       });
+      setItem(item + 1);
       toast.success("Produto adicionado com sucesso!");
     } else {
       toast.error("Este produto já foi adicionado!");
     }
   }
 
+  function addProductsCountCart(element: iCartProducts) {
+    const getAddProducts = products.find((elem) => elem.id === element.id);
+    setCartProducts((previuosCart: iProducts[] | any) => {
+      return [...previuosCart, getAddProducts];
+    });
+    setItem(item + 1);
+    toast.success("Produto adicionado com sucesso!");
+  }
+
   function removeProduct(id: iCartProducts) {
-    const removeAddProdcts = cartProdcts.filter((elem) => elem !== id);
-    setCartProducts(removeAddProdcts);
+    const removeAddProdcts = cartProdcts.find((elem) => elem !== id);
+    const removeItem = cartProdcts.findIndex(
+      (element) => element !== removeAddProdcts
+    );
+    cartProdcts.splice(removeItem, 1);
+    setCartProducts([...cartProdcts]);
+    setItem(item - 1);
+    toast.info("Produto removido com sucesso!");
+  }
+
+  function removeItemCout(id: iCartProducts) {
+    const removeAddProdcts = cartProdcts.find((elem) => elem === id);
+    const removeItem = cartProdcts.findIndex(
+      (element) => element === removeAddProdcts
+    );
+    cartProdcts.splice(removeItem, 1);
+    setCartProducts([...cartProdcts]);
+    setItem(item - 1);
     toast.info("Produto removido com sucesso!");
   }
 
   function removeAllProduct() {
     setCartProducts([]);
+    setItem(0);
     toast.info("Produtos removidos!");
     setTimeout(() => {
       toast.warn("Sacola vazia! Adicione itens!");
     }, 2000);
+  }
+
+  function coutItemCart(id: number) {
+    const item = cartProdcts.filter((elem) => elem.id === id);
+    return item.length;
   }
 
   return (
@@ -109,6 +146,10 @@ export function CartProvider({ children }: iCartProviderProps) {
         addProductsCart,
         removeProduct,
         removeAllProduct,
+        item,
+        addProductsCountCart,
+        coutItemCart,
+        removeItemCout,
       }}
     >
       {children}
