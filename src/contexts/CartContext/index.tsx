@@ -93,18 +93,18 @@ export function CartProvider({ children }: iCartProviderProps) {
     setCartProducts((previuosCart: iProducts[] | any) => {
       return [...previuosCart, getAddProducts];
     });
-    setItem(item + 1);
     toast.success("Produto adicionado com sucesso!");
   }
 
   function removeProduct(id: iCartProducts) {
-    const removeAddProdcts = cartProdcts.find((elem) => elem !== id);
-    const removeItem = cartProdcts.findIndex(
-      (element) => element !== removeAddProdcts
-    );
-    cartProdcts.splice(removeItem, 1);
-    setCartProducts([...cartProdcts]);
-    setItem(item - 1);
+    const removeAddProdcts = cartProdcts.filter((elem) => elem !== id);
+    setCartProducts(removeAddProdcts);
+    if (item > 0) {
+      setItem(item - 1);
+    } else {
+      setItem(0);
+    }
+
     toast.info("Produto removido com sucesso!");
   }
 
@@ -115,7 +115,11 @@ export function CartProvider({ children }: iCartProviderProps) {
     );
     cartProdcts.splice(removeItem, 1);
     setCartProducts([...cartProdcts]);
-    setItem(item - 1);
+    if (item > 0) {
+      setItem(item - 1);
+    } else {
+      setItem(0);
+    }
     toast.info("Produto removido com sucesso!");
   }
 
